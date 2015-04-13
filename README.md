@@ -10,7 +10,9 @@ The django `django_admin_conf_vars` app allows you to have configuration variabl
 
 3. Migrate `python manage.py migrate`
 
-4. Create a file 'my_settings_conf.py' next to your settings.py and define your variables
+4. Create a python module file named like you want. eg: 'my_var_settings_file' and put it into your project.
+    Define your variables in that file::
+
     ```python
     from django_admin_conf_vars.global_vars import config
     config.set("MY_TIME_VAR", default=60)
@@ -19,7 +21,7 @@ The django `django_admin_conf_vars` app allows you to have configuration variabl
 
 5. Add to your settings.py file:
     ```python
-    GLOBAL_VARS_PATH = 'my_package.my_settings_conf'
+    GLOBAL_VARS_PATH = 'my_package.my_var_settings_file'
     ```
 The variable GLOBAL_VARS_PATH must to have the name of your new file (point 4). Be sure to locale in a python package.
 
@@ -29,6 +31,7 @@ Ready! Now you have configuration variables with [django admininistration](http:
 
 ### Dependences
 * Django >= 1.7
+
 
 ### Differences between normal settings variables and django_admin_conf_vars
 ----
@@ -83,9 +86,14 @@ Now you can edit those variables with the [django admin](http://localhost:8000/a
 
 
 ### How it works
-django_admin_conf_vars use the Singleton design pattern to guaranteeing that only exist one instance of your configuration variables and your view calls doesn't use the database every time, but rather a single object with your variables as attributes. See [global_vars.py](https://github.com/MaoAiz/django-admin-conf-vars/blob/master/django_admin_conf_vars/global_vars.py#L12)
+django_admin_conf_vars use the Singleton design pattern to guarantee that only exist one instance of your configuration variables and your view calls doesn't use the database every time, but rather a single object with your variables as attributes. See [global_vars.py](https://github.com/MaoAiz/django-admin-conf-vars/blob/master/django_admin_conf_vars/global_vars.py#L12)
 
 
 
 ### Author
 Created by [Mauricio Aizaga](https://github.com/maoaiz)
+
+
+### Contributors
+
+Feel free to send a [pull request](https://github.com/MaoAiz/django-admin-conf-vars/pulls) to make a better software, I wait you.
