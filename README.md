@@ -19,9 +19,9 @@ The django `django_admin_conf_vars` app allows you to have configuration variabl
 
 5. Add to your settings.py file:
     ```python
-    GLOBAL_VARS_PATH = 'my_settings_conf'
+    GLOBAL_VARS_PATH = 'my_package.my_settings_conf'
     ```
-The variable GLOBAL_VARS_PATH must to have the name of your new file (point 4)
+The variable GLOBAL_VARS_PATH must to have the name of your new file (point 4). Be sure to locale in a python package.
 
 Ready! Now you have configuration variables with [django admininistration](http://localhost:8000/admin/django_admin_conf_vars/confvar/).
 
