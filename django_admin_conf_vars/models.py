@@ -2,12 +2,12 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class ConfVar(models.Model):
+class ConfigurationVariable(models.Model):
     name = models.CharField(max_length=100)
     value = models.CharField(max_length=255)
     
     def save(self, reload=True, *args, **kwargs):
-        res = super(ConfVar, self).save(*args, **kwargs)
+        res = super(ConfigurationVariable, self).save(*args, **kwargs)
         if reload:
             from .global_vars import config
             config.reload(self.name, self.value)

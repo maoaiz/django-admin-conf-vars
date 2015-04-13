@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import ConfVar
+from .models import ConfigurationVariable
 
 
-class ConfVarAdmin(admin.ModelAdmin):
+class ConfigurationVariableAdmin(admin.ModelAdmin):
     list_display = ('name', 'value',)
     list_editable = ('value',)
     fields = ('name', 'value',)
@@ -17,4 +17,4 @@ class ConfVarAdmin(admin.ModelAdmin):
         return False
 
 
-admin.site.register(ConfVar, ConfVarAdmin)
+admin.site.register(ConfigurationVariable, ConfigurationVariableAdmin)

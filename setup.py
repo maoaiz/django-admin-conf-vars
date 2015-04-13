@@ -8,10 +8,10 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-admin-conf-vars',
-    version='0.2.2',
+    version='0.2.3',
     include_package_data=True,
     license='BSD License',
-    description='A simple Django app to have configuration variables for your project with the Django admin.',
+    description='A simple Django app to edit configuration variables with the Django admin.',
     long_description=README,
     url='https://github.com/maoaiz/django-admin-conf-vars',
     packages=find_packages(),
@@ -21,6 +21,8 @@ setup(
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
+        'Framework :: Django :: 1.7',
+        'Framework :: Django :: 1.8',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',

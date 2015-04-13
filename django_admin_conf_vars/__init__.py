@@ -1,1 +1,1 @@
-default_app_config = 'django_admin_conf_vars.apps.ConfVarConfig'
+default_app_config = 'django_admin_conf_vars.apps.ConfigurationVariableConfig'
