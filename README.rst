@@ -5,8 +5,8 @@ Django Administrable configuration varialbes
 The django `django_admin_conf_vars` app allows you to have configuration variables for your project with the Django admin
 
 
-Installation
-------------
+# Installation
+--------------
 
 1. Install from `pypi <https://pypi.python.org/pypi/django-admin-conf-vars>`_ ::
 
@@ -18,7 +18,7 @@ Installation
 
 4. Create a python module file named like you want. eg: 'my_var_settings_file.py' and put it into your project. eg: my_package/my_var_settings_file.py.
 
-    Define your variables in that file::
+  Define your variables in that file::
 
     from django_admin_conf_vars.global_vars import config
     config.set("MY_TIME_VAR", default=60)
@@ -36,10 +36,10 @@ Installation
 
 
 # Differences between normal settings variables and django_admin_conf_vars
-----------------------------------------------------------------------------
+--------------------------------------------------------------------------
 
 ## Normal:
-------------
+----------
 Your vars in the  settings.py::
 
     MY_TIME_VAR =  60
@@ -61,8 +61,9 @@ Conclusion: You have static variables written in your settings.py
 
 but... what happen if you want to edit some of those variables in production? You need to edit the settings and reload your server. (Ͼ˳Ͽ)..!!!
 
+
 ## With django_admin_conf_vars:
----------------------------------
+-------------------------------
 You writte your variables and use them like normal usage.
 
 Your vars in my_var_settings_file.py::
@@ -90,12 +91,12 @@ Now you can edit those variables with the django admin
 
 # How it works
 --------------
-django_admin_conf_vars use the Singleton design pattern to guarantee that only exist one instance of your configuration variables and your view calls doesn't use the database every time, but rather a single object with your variables as attributes. See `global_vars.py <https://github.com/MaoAiz/django-admin-conf-vars/blob/master/django_admin_conf_vars/global_vars.py#L12`_
+django_admin_conf_vars use the Singleton design pattern to guarantee that only exist one instance of your configuration variables and your view calls doesn't use the database every time, but rather a single object with your variables as attributes. See `global_vars.py <https://github.com/MaoAiz/django-admin-conf-vars/blob/master/django_admin_conf_vars/global_vars.py>`_.
 
 
 # Author
 --------
-Created by `Mauricio Aizaga <https://github.com/maoaiz>`_
+Created by `Mauricio Aizaga <https://github.com/maoaiz>`_.
 
 
 
@@ -104,4 +105,3 @@ Created by `Mauricio Aizaga <https://github.com/maoaiz>`_
 # Contributors
 --------------
 Feel free to send a `pull request <https://github.com/MaoAiz/django-admin-conf-vars/pulls>`_ to make a better software, I wait you.
-
