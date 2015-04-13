@@ -35,13 +35,15 @@ class SingletonVar(object):
         self.ATTRIBUTES[name] = value
 
     def load_attributes(self):
-        PROJECT_ROOT = os.environ['DJANGO_SETTINGS_MODULE'].split('.')[0]
         try:
             vars_path = settings.GLOBAL_VARS_PATH
         except Exception:
             vars_path = DEFAULT
 
-        __import__(PROJECT_ROOT, fromlist=[vars_path])
+        try:
+            __import__(vars_path)
+        except ImportError, e:
+            raise e
 
 
 config = SingletonVar()
