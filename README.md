@@ -25,6 +25,11 @@ The variable GLOBAL_VARS_PATH must to have the name of your new file (point 4). 
 
 Ready! Now you have configuration variables with [django admininistration](http://localhost:8000/admin/django_admin_conf_vars/confvar/).
 
+
+
+### Dependences
+* Django >= 1.7
+
 ### Differences between normal settings variables and django_admin_conf_vars
 ----
 
@@ -73,6 +78,12 @@ def my_view(request):
 ```
 
 Now you can edit those variables with the [django admin](http://localhost:8000/admin/django_admin_conf_vars/confvar/):
+
+
+
+
+### How it works
+django_admin_conf_vars use the Singleton design pattern to guaranteeing that only exist one instance of your configuration variables and your view calls doesn't use the database every time, but rather a single object with your variables as attributes. See [global_vars.py](https://github.com/MaoAiz/django-admin-conf-vars/blob/master/django_admin_conf_vars/global_vars.py#L12)
 
 
 
