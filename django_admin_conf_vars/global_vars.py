@@ -38,12 +38,22 @@ class SingletonVar(object):
         try:
             vars_path = settings.GLOBAL_VARS_PATH
         except Exception:
+            print "*******************************************************************"
+            print "*******************************************************************"
+            print "No GLOBAL_VARS_PATH defined in your settings, using default module '{}'. \n".format(DEFAULT)
+            print "*******************************************************************"
+            print "*******************************************************************\n"
             vars_path = DEFAULT
 
         try:
             __import__(vars_path)
-        except ImportError, e:
-            raise e
+        except ImportError:
+            print "*******************************************************************"
+            print "*******************************************************************"
+            print "No module named '{}'. \n\nPlease, read the documentation https://github.com/MaoAiz/django-admin-conf-vars#installation\n".format(vars_path)
+            print "*******************************************************************"
+            print "*******************************************************************"
+
 
 
 config = SingletonVar()
