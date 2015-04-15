@@ -32,7 +32,7 @@ class VariablesManager(object):
         '''Define a variable in DB and in memory'''
         var, created = ConfigurationVariable.objects.get_or_create(name=name)
         if created:
-            var.value = unicode(default)
+            var.value = default
             var.save(reload=False)
         self.ATTRIBUTES[var.name] = var.value
 
