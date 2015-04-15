@@ -46,14 +46,14 @@ class VariablesManager(object):
         try:
             vars_path = settings.VARS_MODULE_PATH
         except Exception:
-            print "*******************************************************************"
-            print "[WARNING] No VARS_MODULE_PATH defined in your settings, using default module '{}'. \n".format(VARS_MODULE_PATH_DEFAULT)
+            print "*******************************************************"
+            print "[WARNING] No VARS_MODULE_PATH defined in your settings,\nUsing default module '{}'. \n".format(VARS_MODULE_PATH_DEFAULT)
             vars_path = VARS_MODULE_PATH_DEFAULT
 
         try:
             __import__(vars_path)
         except ImportError:
-            print "*******************************************************************"
+            print "*******************************************************"
             print "[WARNING] No module named '{}'. \n\nPlease, read the documentation https://github.com/MaoAiz/django-admin-conf-vars#installation\n".format(vars_path)
 
 

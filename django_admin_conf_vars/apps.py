@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 from django.utils.translation import ugettext_lazy as _
-from .global_vars import config
 
 
 class ConfigurationVariableConfig(AppConfig):
@@ -8,4 +7,5 @@ class ConfigurationVariableConfig(AppConfig):
     verbose_name = _(u'Configuration variables')
 
     def ready(self):
+        from .global_vars import config
         config.load_attributes()

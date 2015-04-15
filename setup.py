@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-admin-conf-vars',
-    version='0.2.3',
+    version=__import__('django_admin_conf_vars').__version__,
     include_package_data=True,
     license='BSD License',
     description='A simple Django app to edit configuration variables with the Django admin.',
