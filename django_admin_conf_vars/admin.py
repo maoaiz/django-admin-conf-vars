@@ -3,15 +3,26 @@ from .models import ConfigurationVariable
 
 
 class ConfigurationVariableAdmin(admin.ModelAdmin):
-    list_display = ('name', 'value',)
+    list_display = ('name', 'value', 'editable')
+    fields = ('name', 'value','editable')
     list_editable = ('value',)
-    fields = ('name', 'value',)
-
+    class Media:
+        css = {
+             'all': ('django_admin_conf_vars/css/admin.css',)
+        }
+        js = [
+            'django_admin_conf_vars/js/admin.js'
+        ]
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
-            return ('name',) +  self.readonly_fields
+            if not obj.editable:
+                self.readonly_fields = ('value',)
+            else:
+                self.readonly_fields = ()
+            return ('name', 'editable', ) +  self.readonly_fields
         return self.readonly_fields
+
 
     def has_add_permission(self, request):
         return False
