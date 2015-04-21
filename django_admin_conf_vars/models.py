@@ -6,6 +6,7 @@ class ConfigurationVariable(models.Model):
     name = models.CharField(max_length=100)
     value = models.CharField(max_length=255)
     editable = models.BooleanField(default=True)
+    description = models.TextField(default=True, blank=True)
     
     def save(self, reload=True, *args, **kwargs):
         res = super(ConfigurationVariable, self).save(*args, **kwargs)

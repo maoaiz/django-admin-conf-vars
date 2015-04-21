@@ -29,7 +29,7 @@ Don't worry about the warnings, they are shown only the first time. (It's becous
     config.set("MY_OTHER_VAR", default="/some/path")
     ...
 
-Be sure to have migrated and have the database created at this point.
+Be sure to have migrated and have the database created at this point. See `How to use <https://github.com/maoaiz/django-admin-conf-vars/wiki/How-to-use>`_
 
 
 5. Add to your settings.py the path of your new module::
