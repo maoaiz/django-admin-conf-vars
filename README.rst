@@ -26,7 +26,7 @@ Don't worry about the warnings, they are shown only the first time. (It's becous
     from django_admin_conf_vars.global_vars import config
 
     config.set("MY_TIME_VAR", default=60)
-    config.set("MY_OTHER_VAR", default="/some/path")
+    config.set("MY_OTHER_VAR", default="/some/path", editable=False)
     ...
 
 Be sure to have migrated and have the database created at this point. See `How to use <https://github.com/maoaiz/django-admin-conf-vars/wiki/How-to-use>`_
@@ -48,7 +48,7 @@ Ready! Now you have configuration variables with django admininistration.
 
 If You have installed previous versions, you need to migrate again, but first you must to comment the line in your settings.py `# VARS_MODULE_PATH = 'my_package.my_var_settings_file'`.
 
-1. Comment the VARS_MODULE_PATH
+1. Comment the `VARS_MODULE_PATH` in your settings.py
 
 2. Upgrade via pip `$ pip install --upgrade django_admin_conf_vars`.
 

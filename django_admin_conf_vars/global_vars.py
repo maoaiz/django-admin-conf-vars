@@ -33,9 +33,9 @@ class VariablesManager(object):
         var, created = ConfigurationVariable.objects.get_or_create(name=name)
         if created:
             var.value = default
-            var.editable = editable
-        if not var.editable:
+        if not editable:
             var.value = default
+        var.editable = editable
         var.description = description
         var.save(reload=False)
         self.ATTRIBUTES[var.name] = var.value  # ATTRIBUTES is accesible by any instance of VariablesManager
