@@ -5,14 +5,6 @@ from .models import ConfigurationVariable
 class ConfigurationVariableAdmin(admin.ModelAdmin):
     list_display = ('name', 'value', 'description', 'editable')
     fields = ('name', 'value', 'description', 'editable')
-    list_editable = ('value',)
-    class Media:
-        css = {
-             'all': ('django_admin_conf_vars/css/admin.css',)
-        }
-        js = [
-            'django_admin_conf_vars/js/admin.js'
-        ]
 
     def get_readonly_fields(self, request, obj=None):
         if obj:

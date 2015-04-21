@@ -34,9 +34,11 @@ class VariablesManager(object):
         if created:
             var.value = default
             var.editable = editable
-            var.description = description
-            var.save(reload=False)
-        self.ATTRIBUTES[var.name] = var.value
+        if not var.editable:
+            var.value = default
+        var.description = description
+        var.save(reload=False)
+        self.ATTRIBUTES[var.name] = var.value  # ATTRIBUTES is accesible by any instance of VariablesManager
 
     def reload(self, name, value):
         '''Update a variable in memory. ConfigurationVariable model use this method when a variable is
