@@ -3,8 +3,8 @@ from .models import ConfigurationVariable
 
 
 class ConfigurationVariableAdmin(admin.ModelAdmin):
-    list_display = ('name', 'value', 'editable')
-    fields = ('name', 'value','editable')
+    list_display = ('name', 'value', 'description', 'editable')
+    fields = ('name', 'value', 'description', 'editable')
     list_editable = ('value',)
     class Media:
         css = {
@@ -20,7 +20,7 @@ class ConfigurationVariableAdmin(admin.ModelAdmin):
                 self.readonly_fields = ('value',)
             else:
                 self.readonly_fields = ()
-            return ('name', 'editable', ) +  self.readonly_fields
+            return ('name', 'editable', 'description',) +  self.readonly_fields
         return self.readonly_fields
 
 
