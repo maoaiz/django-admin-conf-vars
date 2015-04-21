@@ -28,12 +28,13 @@ class VariablesManager(object):
             self.load_attributes()
         return eval(str(self.ATTRIBUTES))
 
-    def set(self, name, default=0, editable=True):
+    def set(self, name, default=0, editable=True, description=""):
         '''Define a variable in DB and in memory'''
         var, created = ConfigurationVariable.objects.get_or_create(name=name)
         if created:
             var.value = default
             var.editable = editable
+            var.description = description
             var.save(reload=False)
         self.ATTRIBUTES[var.name] = var.value
 
