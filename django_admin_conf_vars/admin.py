@@ -16,6 +16,9 @@ class ConfigurationVariableAdmin(admin.ModelAdmin):
         return self.readonly_fields
 
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
     def has_add_permission(self, request):
         return False
 

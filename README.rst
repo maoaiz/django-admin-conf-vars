@@ -79,7 +79,7 @@ If You have installed previous versions, you need to migrate again, but first yo
 2. Every you modified a single var in the admin.
 
 
-`django_admin_conf_vars` allows you to define global vars in your code, and too allows to edit them with the django admin. If you modify a variable with the admin, this always will have the value of the database, and never will rewrite with the code value. If you want to use the code value, you need to delete it from admin, and restart your server.
+`django_admin_conf_vars` allows you to define global vars in your code, and too allows to edit them with the django admin. If you modify a variable with the admin, this always will keep the value of the database, and never will rewrite with the value inside the code. If you want to use the value inside the code, you can edit it in the admin and copy that value :)
 
 
 
