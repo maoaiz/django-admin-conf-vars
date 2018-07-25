@@ -1,8 +1,11 @@
 from django.conf import settings
 from .models import ConfigurationVariable
+import logging
 
 
 VARS_MODULE_PATH_DEFAULT = 'global_vars'
+logging.basicConfig(level=logging.WARNING)
+logger = logging.getLogger(__name__)
 
 
 class VariablesManager(object):
@@ -64,17 +67,18 @@ class VariablesManager(object):
         try:
             vars_path = settings.VARS_MODULE_PATH
         except Exception:
-            print("*******************************************************")
-            print("""[WARNING] No VARS_MODULE_PATH defined in your settings.
-                Using default module '{}'. \n""".format(VARS_MODULE_PATH_DEFAULT))
+            # logger.warning("*" * 55)
+            logger.warning(
+                " [WARNING] Using default VARS_MODULE_PATH = '{}'".format(
+                    VARS_MODULE_PATH_DEFAULT))
             vars_path = VARS_MODULE_PATH_DEFAULT
 
         try:
             __import__(vars_path)
         except ImportError:
-            print("*******************************************************")
-            print("""[WARNING] No module named '{}'.\n\nPlease, read the documentation:
-                https://github.com/maoaiz/django-admin-conf-vars#installation\n""".format(
+            logger.warning(" [WARNING] No module named '{}'".format(
+                vars_path))
+            logger.warning(" Please, read the docs: goo.gl/E82vkX\n".format(
                 vars_path))
 
 

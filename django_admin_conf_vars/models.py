@@ -20,10 +20,10 @@ class ConfigurationVariable(models.Model):
             config.reload(self.name, self.value)
         return res
 
-    def get_absolute_url(self):
-        return self.name
-
     def __str__(self):
+        return u"%s: %s" % (self.name, self.value)
+
+    def __unicode__(self):
         return u"%s: %s" % (self.name, self.value)
 
     class Meta:

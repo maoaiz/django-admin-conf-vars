@@ -33,7 +33,7 @@ Be sure to have migrated and have the database created at this point. See `How t
 
 
 5. Add to your settings.py the path of your new module::
-    
+
     VARS_MODULE_PATH = 'my_package.my_var_settings_file'
 
 
@@ -41,6 +41,7 @@ The variable VARS_MODULE_PATH must to have the name of your new file (point 4). 
 
 
 Ready! Now you have configuration variables with django admininistration.
+Just use it in you views, models or any python module. See `How to use <https://github.com/maoaiz/django-admin-conf-vars/wiki/How-to-use>`_
 
 
 ## Upgrating from old version
