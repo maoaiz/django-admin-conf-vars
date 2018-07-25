@@ -12,9 +12,8 @@ class ConfigurationVariableAdmin(admin.ModelAdmin):
                 self.readonly_fields = ('value',)
             else:
                 self.readonly_fields = ()
-            return ('name', 'editable', 'description',) +  self.readonly_fields
+            return ('name', 'editable', 'description',) + self.readonly_fields
         return self.readonly_fields
-
 
     def has_delete_permission(self, request, obj=None):
         return False
