@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='configurationvariable',
             name='description',
-            field=models.TextField(default=True, help_text='The description can only be edited in the code.', blank=True),
+            field=models.TextField(help_text='The description can only be edited in the code.', blank=True),
         ),
         migrations.AlterField(
             model_name='configurationvariable',
